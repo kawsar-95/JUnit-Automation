@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.assignment'
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Selenium WebDriver for browser automation
+    implementation 'org.seleniumhq.selenium:selenium-java:3.141.59'
+
+    // JUnit 4 (well supported on Gradle 4 / JVM 25)
+    testImplementation 'junit:junit:4.13.2'
+
+    // WebDriverManager - auto-downloads matching browser drivers
+    testImplementation 'io.github.bonigarcia:webdrivermanager:5.9.1'
+}
+
+test {
+    // Capture screenshots & HTML reports on each test run
+    systemProperty 'screenshot.dir', "${buildDir}/reports/screenshots"
+    testLogging {
+        events 'passed', 'skipped', 'failed'
+        showStandardStreams = true
+    }
+}

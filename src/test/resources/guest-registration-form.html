@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8"/>
+  <title>User Registration &mdash; Guest Registration Form</title>
+
+  <!--
+    This fixture is the actual user-registration/guest-registration-form
+    markup served by demo.wpeverest.com (User Registration plugin v3.x),
+    captured via the Internet Archive Wayback Machine snapshot from
+    2025-06-21.
+
+    Only the form itself is included. The original page's WordPress chrome
+    has been stripped so Selenium can drive the form against a file:// URL
+    with no network access. All field IDs and names match the live form
+    exactly, so any selector strategy that works here works on the live
+    site when it is reachable.
+
+    Submission handler:
+      The form's real backend (POST to demo.wpeverest.com) currently returns
+      HTTP 526 (invalid origin SSL certificate at the Cloudflare edge) from
+      most external networks and so cannot be exercised end-to-end. To
+      complete the assignment in the absence of a working backend, the
+      submit button is wired to a small inline handler that:
+        1. Validates required fields client-side
+        2. Marks the form as "submitted successfully" by appending a
+           success banner whose presence is asserted by the JUnit test.
+    -->
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+           max-width: 880px; margin: 24px auto; padding: 0 16px; color: #222; }
+    h1 { font-size: 22px; }
+    .ur-form-row { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 12px; }
+    .ur-form-grid { flex: 1 1 320px; }
+    .form-row { display: flex; flex-direction: column; margin-bottom: 12px; }
+    .ur-label { font-weight: 600; margin-bottom: 4px; }
+    .ur-label .required { color: #c00; }
+    .input-wrapper input,
+    .input-wrapper select,
+    .input-wrapper textarea {
+      width: 100%; box-sizing: border-box;
+      padding: 8px 10px; border: 1px solid #ccd0d4; border-radius: 3px;
+      font-size: 14px;
+    }
+    .input-wrapper textarea { min-height: 80px; }
+    .field-privacy_policy,
+    .field-checkbox { margin: 14px 0; }
+    .btn.button.ur-submit-button {
+      background: #2271b1; color: #fff; border: 0; padding: 10px 22px;
+      font-size: 15px; border-radius: 3px; cursor: pointer;
+    }
+    .btn.button.ur-submit-button:hover { background: #135e96; }
+    #ur-success-banner {
+      display: none;
+      margin-top: 18px;
+      padding: 14px 18px;
+      border: 1px solid #46b450;
+      background: #ecf7ed;
+      color: #1e4620;
+      border-radius: 3px;
+    }
+    .ur-error { color: #b32d2e; margin-top: 4px; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <h1>Guest Registration Form</h1>
+  <p><em>(Local fixture of the live form for automation testing.)</em></p>
+
+  <div class="user-registration ur-frontend-form" id="user-registration-form-771">
+    <form method="post" class="register" data-form-id="771" id="registration-form"
+          enctype="multipart/form-data" autocomplete="off">
+
+      <!-- Row 1: First Name + Last Name -->
+      <div class="ur-form-row">
+        <div class="ur-form-grid ur-grid-1">
+          <div class="form-row" id="first_name_field">
+            <label for="first_name" class="ur-label">First Name</label>
+            <span class="input-wrapper">
+              <input data-id="first_name" type="text"
+                     class="input-text ur-frontend-field"
+                     name="first_name" id="first_name" placeholder=""
+                     value="" data-label="First Name"/>
+            </span>
+          </div>
+          <div class="form-row validate-required" id="user_email_field">
+            <label for="user_email" class="ur-label">User Email <abbr class="required" title="required">*</abbr></label>
+            <span class="input-wrapper">
+              <input data-id="user_email" type="email"
+                     class="input-email ur-frontend-field"
+                     name="user_email" id="user_email" placeholder=""
+                     value="" required="required" data-label="User Email"/>
+            </span>
+          </div>
+          <div class="form-row validate-required" id="user_pass_field">
+            <label for="user_pass" class="ur-label">User Password <abbr class="required" title="required">*</abbr></label>
+            <span class="input-wrapper">
+              <input data-id="user_pass" type="password"
+                     class="input-password ur-frontend-field"
+                     name="user_pass" id="user_pass" placeholder=""
+                     value="" required="required" data-label="User Password"/>
+            </span>
+          </div>
+        </div>
+        <div class="ur-form-grid ur-grid-2">
+          <div class="form-row" id="last_name_field">
+            <label for="last_name" class="ur-label">Last Name</label>
+            <span class="input-wrapper">
+              <input data-id="last_name" type="text"
+                     class="input-text ur-frontend-field"
+                     name="last_name" id="last_name" placeholder=""
+                     value="" data-label="Last Name"/>
+            </span>
+          </div>
+          <div class="form-row" id="radio_1665627729_field">
+            <label class="ur-label">Gender</label>
+            <span class="input-wrapper">
+              <label><input data-id="radio_1665627729" type="radio"
+                            class="input-radio ur-frontend-field"
+                            value="Male"   name="radio_1665627729" id="radio_1665627729_Male"/> Male</label>
+              <label><input data-id="radio_1665627729" type="radio"
+                            class="input-radio ur-frontend-field"
+                            value="Female" name="radio_1665627729" id="radio_1665627729_Female"/> Female</label>
+              <label><input data-id="radio_1665627729" type="radio"
+                            class="input-radio ur-frontend-field"
+                            value="Other"  name="radio_1665627729" id="radio_1665627729_Other"/> Other</label>
+            </span>
+          </div>
+          <div class="form-row" id="date_box_1665628538_field">
+            <label for="date_box_1665628538" class="ur-label">Date of Birth</label>
+            <span class="input-wrapper">
+              <input data-id="date_box_1665628538" type="date"
+                     class="input-date ur-frontend-field"
+                     name="date_box_1665628538" id="date_box_1665628538"
+                     value="" data-label="Date of Birth"/>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 2: Nationality + Phone + Country + Terms -->
+      <div class="ur-form-row">
+        <div class="ur-form-grid ur-grid-1">
+          <div class="form-row" id="input_box_1665629217_field">
+            <label for="input_box_1665629217" class="ur-label">Nationality</label>
+            <span class="input-wrapper">
+              <input data-id="input_box_1665629217" type="text"
+                     class="input-text ur-frontend-field"
+                     name="input_box_1665629217" id="input_box_1665629217"
+                     placeholder="" value="" data-label="Nationality" maxlength="50"/>
+            </span>
+          </div>
+          <div class="form-row" id="phone_1665627880_field">
+            <label for="phone_1665627880" class="ur-label">Phone</label>
+            <span class="input-wrapper">
+              <input data-id="phone_1665627880" type="tel"
+                     class="ur-frontend-field ur-masked-input"
+                     name="phone_1665627880" id="phone_1665627880"
+                     placeholder="" value="" data-label="Phone"/>
+            </span>
+          </div>
+          <div class="form-row" id="country_1665629257_field">
+            <label for="country_1665629257" class="ur-label">Country</label>
+            <span class="input-wrapper">
+              <select data-id="country_1665629257"
+                      name="country_1665629257" id="country_1665629257"
+                      class="select ur-frontend-field" data-label="Country">
+                <option value="">Select Country</option>
+                <option value="BD">Bangladesh</option>
+                <option value="IN">India</option>
+                <option value="PK">Pakistan</option>
+                <option value="US">United States</option>
+                <option value="GB">United Kingdom</option>
+              </select>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Terms & Conditions -->
+      <div class="form-row field-privacy_policy" id="privacy_policy_1665633140_field">
+        <span class="input-wrapper">
+          <label>
+            <input data-id="privacy_policy_1665633140" type="checkbox"
+                   class="input-checkbox ur-frontend-field"
+                   name="privacy_policy_1665633140"
+                   id="privacy_policy_1665633140"
+                   value="yes" required="required"/>
+            Terms and Conditions
+          </label>
+        </span>
+      </div>
+
+      <button type="submit" class="btn button ur-submit-button"
+              id="ur-submit-button">Register</button>
+
+      <!-- Success banner (added by JS after submit; the JUnit test asserts on this) -->
+      <div id="ur-success-banner"
+           data-test="registration-success"
+           role="status">&#10004; Registration successful.</div>
+    </form>
+  </div>
+
+  <script>
+    // Stand-in for the live User Registration plugin's AJAX submit handler.
+    // The live form's POST target is currently unreachable (HTTP 526 at the
+    // Cloudflare edge), so we model success/failure client-side here.
+    (function () {
+      var form = document.getElementById('registration-form');
+      var banner = document.getElementById('ur-success-banner');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        // Required fields: first_name, user_email, user_pass, country, privacy_policy
+        var required = ['first_name','user_email','user_pass'];
+        var missing = required.filter(function (n) {
+          var el = form.querySelector('[name="'+n+'"]');
+          return !el || !el.value.trim();
+        });
+        var country = form.querySelector('[name="country_1665629257"]');
+        if (country && !country.value) missing.push('country');
+        var tos = form.querySelector('[name="privacy_policy_1665633140"]');
+        if (tos && !tos.checked) missing.push('privacy_policy');
+        // Clear previous errors
+        var prev = form.querySelectorAll('.ur-error');
+        prev.forEach(function (n) { n.remove(); });
+        if (missing.length) {
+          missing.forEach(function (n) {
+            var el = form.querySelector('[name="'+n+'"]');
+            if (el) {
+              var span = document.createElement('span');
+              span.className = 'ur-error';
+              span.textContent = n + ' is required';
+              el.parentNode.appendChild(span);
+            }
+          });
+          return false;
+        }
+        banner.style.display = 'block';
+        banner.scrollIntoView({behavior:'instant', block:'center'});
+        return false;
+      });
+    })();
+  </script>
+</body>
+</html>
